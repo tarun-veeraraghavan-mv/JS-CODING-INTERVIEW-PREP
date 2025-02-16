@@ -18,7 +18,7 @@
 // eg: 'abcd'.split('') -> ['a','b','c','d']
 // eg: 'a+b+c+d'.split('+') -> ['a','b','c','d']
 
-function reverse1(str) {
+exports.reverse1 = (str) => {
   // split the string into an array
   const arr = str.split("");
 
@@ -31,15 +31,15 @@ function reverse1(str) {
   return joinedArr;
 
   // ONE LINER SOLN: return str.split('').reverse().join('')
-}
+};
 
-console.log("REVERSED SOLN 1: " + reverse1("apple"));
+// console.log("REVERSED SOLN 1: " + reverse1("apple"));
 
 // NOTE: If said cannot use the inbuilt reverse() method, then use this:
 
 // Soln 2
 
-function reverse2(str) {
+exports.reverse2 = (str) => {
   // create an empty string called reverse
   let reversed = "";
 
@@ -51,13 +51,13 @@ function reverse2(str) {
 
   // return the reversed
   return reversed;
-}
+};
 
 // console.log("REVERSE SOLN 2: " + reverse2("hello"));
 
 // Soln 3: very complicated but shows to the interviewer that you know how to reverse a string
 
-function reverse3(str) {
+exports.reverse3 = (str) => {
   const stringArr = str.split("");
 
   const output = stringArr.reduce((acc, cur) => cur + acc, "");
@@ -65,6 +65,6 @@ function reverse3(str) {
   return output;
 
   // ONE LINER SOLN: str.split("").reduce((acc, cur) => cur + acc, "");
-}
+};
 
-console.log("REVERSAL SOLN 3: " + reverse3("apple"));
+// console.log("REVERSAL SOLN 3: " + reverse3("apple"));
