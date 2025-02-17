@@ -11,7 +11,7 @@
 
 // Soln 1
 
-function palindrome1(str) {
+exports.palindrome1 = (str) => {
   // reverse a string
   const reversed = str.split("").reverse().join("");
 
@@ -20,5 +20,10 @@ function palindrome1(str) {
 
   // returns true / false
   return finalValue;
-}
+};
 
+exports.palindrome2 = (str) => {
+  return str
+    .split("")
+    .every((letter, index) => letter === str[str.length - index - 1]);
+};
