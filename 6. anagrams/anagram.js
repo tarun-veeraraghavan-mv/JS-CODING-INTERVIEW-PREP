@@ -9,8 +9,9 @@
 function charMap(str) {
   const map = {};
 
-  // regex helps to 
-  for (let letter of str.replace(/[^\w]/g, '')) {
+  // any time we find a charecter that is not a number, capital letter or lowercase letter we want to replace it
+  // with an empty string
+  for (let letter of str.replace(/[^\w]/g, "").toLowerCase()) {
     if (!map[letter]) {
       map[letter] = 1;
     } else {
@@ -21,12 +22,33 @@ function charMap(str) {
   return map;
 }
 
+// Soln 1
 function anagram1(str1, str2) {
   const str1Map = charMap(str1);
   const str2Map = charMap(str2);
 
-  console.log(str1Map);
-  console.log(str2Map);
+  if (Object.keys(str1Map).length !== Object.keys(str2Map).length) {
+    return false;
+  }
+
+  for (let letter in str1Map) {
+    if (str1Map[letter] !== str2Map[letter]) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
-anagram1("qelwiwrijr", "wejlwowe");
+console.log(anagram1("abv", "abv"));
+
+// Soln 2
+function anagram2(str1, str2) {
+  return cleanString(str1) === cleanString(str2);
+}
+
+function cleanString(str) {
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
+}
+
+console.log(anagram2('abcdf','abcdf!'));
